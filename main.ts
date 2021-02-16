@@ -56,6 +56,7 @@ game.onUpdateInterval(100, function () {
         7777777777788888777777777777777777777bbbbbb77777777777777777bbbbbb..............
         `, 0, 80)
     roadsliceleft.setKind(SpriteKind.leftside)
+    roadsliceleft.x = 0 - turnOFFset
     roadslice_Right = sprites.createProjectileFromSide(img`
         ......bbbbb777777777777777777777777777777777777777777777777777777777777777777777
         ......bbbbb777777777777777777777777777777777777777777777777777777777777777777777
