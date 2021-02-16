@@ -39,10 +39,12 @@ mySprite = sprites.create(img`
     . . . . 5 5 . . . . . . 5 5 . . 
     `, SpriteKind.Player)
 controller.moveSprite(mySprite)
+scene.cameraFollowSprite(mySprite)
 speed = 0
-info.setLife(999)
+info.setLife(3)
 game.onUpdateInterval(100, function () {
     turnOFFset = randint(-2, 2)
+    turnOFFset = Math.constrain(turnOFFset, -20, 10)
     roadsliceleft = sprites.createProjectileFromSide(img`
         77777777777777777777777777777777777bbbbb77777777777777777bbbbb..................
         77788888777777777777777777777777777bbbbb77777777777777777bbbbb..................
@@ -56,7 +58,7 @@ game.onUpdateInterval(100, function () {
         7777777777788888777777777777777777777bbbbbb77777777777777777bbbbbb..............
         `, 0, 80)
     roadsliceleft.setKind(SpriteKind.leftside)
-    roadsliceleft.x = 0 - turnOFFset
+    roadsliceleft.x += turnOFFset
     roadslice_Right = sprites.createProjectileFromSide(img`
         ......bbbbb777777777777777777777777777777777777777777777777777777777777777777777
         ......bbbbb777777777777777777777777777777777777777777777777777777777777777777777
@@ -71,4 +73,5 @@ game.onUpdateInterval(100, function () {
         `, 0, 80)
     roadslice_Right.setKind(SpriteKind.Rightside)
     roadslice_Right.right = 200
+    roadslice_Right.x += turnOFFset
 })
